@@ -1825,32 +1825,174 @@ LT_DEFAULT_CONFIG = {
     "sets": [
         {
             "id": "side-c",
-            "name": "Link Travelers Side C",
+            "name": "Side C（錬金術師／魔法系）",
             "figures": [
-                {"id": "c01", "name": "#1 待更新", "image": ""},
-                {"id": "c02", "name": "#2 待更新", "image": ""},
+                {
+                    "id": "c01",
+                    "name": "錬金術師の少女【真】",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c01.jpg"
+                },
+                {
+                    "id": "c02",
+                    "name": "おさげのウサギの獣人",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c02.jpg"
+                },
+                {
+                    "id": "c03",
+                    "name": "術師のコート【桃】",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c03.jpg"
+                },
+                {
+                    "id": "c04",
+                    "name": "錬金術師の服【赤】",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c04.jpg"
+                },
+                {
+                    "id": "c05",
+                    "name": "上級魔術師の服（上）",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c05.jpg"
+                },
+                {
+                    "id": "c06",
+                    "name": "獣人の服【白】",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c06.jpg"
+                },
+                {
+                    "id": "c07",
+                    "name": "大型リュックサック",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c07.jpg"
+                },
+                {
+                    "id": "c08",
+                    "name": "術師の帽子",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c08.jpg"
+                },
+                {
+                    "id": "c09",
+                    "name": "術師の杖",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c09.jpg"
+                },
+                {
+                    "id": "c10",
+                    "name": "氷霜の弓矢",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c10.jpg"
+                },
+                {
+                    "id": "c11",
+                    "name": "ポーションセット",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c11.jpg"
+                },
+                {
+                    "id": "c12",
+                    "name": "錬金ベルトセット",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c12.jpg"
+                },
+                {
+                    "id": "c13",
+                    "name": "獣人の帽子【灰】",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c13.jpg"
+                },
+                {
+                    "id": "c14",
+                    "name": "波濤の剣",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c14.jpg"
+                },
+                {
+                    "id": "c15",
+                    "name": "錬金術師の少女【真】フェイスA",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c15.jpg"
+                },
+                {
+                    "id": "c16",
+                    "name": "錬金術師の少女【真】フェイスB",
+                    "image": "https://gingsisi.github.io/lt-trade/images/c16.jpg"
+                }
             ]
         },
         {
             "id": "side-g",
-            "name": "Side G（鍊金術師／魔法系）",
+            "name": "Side G（聖域の騎士／魔法系）",
             "figures": [
-                {"id": "g01", "name": "錬金術師の少女【真】", "image": ""},
-                {"id": "g02", "name": "おさげのウサギの獣人", "image": ""},
-                {"id": "g03", "name": "術師のコート【桃】", "image": ""},
-                {"id": "g04", "name": "錬金術師の服【赤】", "image": ""},
-                {"id": "g05", "name": "上級魔術師の服（上）", "image": ""},
-                {"id": "g06", "name": "獣人の服【白】", "image": ""},
-                {"id": "g07", "name": "大型リュックサック", "image": ""},
-                {"id": "g08", "name": "術師の帽子", "image": ""},
-                {"id": "g09", "name": "術師の杖", "image": ""},
-                {"id": "g10", "name": "氷霜の弓矢", "image": ""},
-                {"id": "g11", "name": "ポーションセット", "image": ""},
-                {"id": "g12", "name": "錬金ベルトセット", "image": ""},
-                {"id": "g13", "name": "獣人の帽子【灰】", "image": ""},
-                {"id": "g14", "name": "波濤の剣", "image": ""},
-                {"id": "g15", "name": "錬金術師の少女【真】フェイスA", "image": ""},
-                {"id": "g16", "name": "錬金術師の少女【真】フェイスB", "image": ""},
+                {
+                    "id": "g01",
+                    "name": "聖域の騎士【真】",
+                    "image": ""
+                },
+                {
+                    "id": "g02",
+                    "name": "クロネコの獣人",
+                    "image": ""
+                },
+                {
+                    "id": "g03",
+                    "name": "錬金の鎧【銀】（上）",
+                    "image": ""
+                },
+                {
+                    "id": "g04",
+                    "name": "錬金の鎧【銀】（下）",
+                    "image": ""
+                },
+                {
+                    "id": "g05",
+                    "name": "上級魔術師の服（下）",
+                    "image": ""
+                },
+                {
+                    "id": "g06",
+                    "name": "妖刀宵雷（ショウライ）",
+                    "image": ""
+                },
+                {
+                    "id": "g07",
+                    "name": "翠翼の聖斧",
+                    "image": ""
+                },
+                {
+                    "id": "g08",
+                    "name": "ルーンの槌",
+                    "image": ""
+                },
+                {
+                    "id": "g09",
+                    "name": "残火の短剣",
+                    "image": ""
+                },
+                {
+                    "id": "g10",
+                    "name": "ネコの獣人の服",
+                    "image": ""
+                },
+                {
+                    "id": "g11",
+                    "name": "マジックシールド",
+                    "image": ""
+                },
+                {
+                    "id": "g12",
+                    "name": "ネコの獣人の兜",
+                    "image": ""
+                },
+                {
+                    "id": "g13",
+                    "name": "妖精のマント【灰】",
+                    "image": ""
+                },
+                {
+                    "id": "g14",
+                    "name": "聖域の騎士【真】フェイスA",
+                    "image": ""
+                },
+                {
+                    "id": "g15",
+                    "name": "聖域の騎士フェイスA",
+                    "image": ""
+                },
+                {
+                    "id": "g16",
+                    "name": "聖域の騎士フェイスB",
+                    "image": ""
+                }
             ]
         }
     ]
