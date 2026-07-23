@@ -1914,86 +1914,22 @@ LT_DEFAULT_CONFIG = {
             "id": "side-g",
             "name": "Side G（聖域の騎士／魔法系）",
             "figures": [
-                {
-                    "id": "g01",
-                    "name": "聖域の騎士【真】",
-                    "image": ""
-                },
-                {
-                    "id": "g02",
-                    "name": "クロネコの獣人",
-                    "image": ""
-                },
-                {
-                    "id": "g03",
-                    "name": "錬金の鎧【銀】（上）",
-                    "image": ""
-                },
-                {
-                    "id": "g04",
-                    "name": "錬金の鎧【銀】（下）",
-                    "image": ""
-                },
-                {
-                    "id": "g05",
-                    "name": "上級魔術師の服（下）",
-                    "image": ""
-                },
-                {
-                    "id": "g06",
-                    "name": "妖刀宵雷（ショウライ）",
-                    "image": ""
-                },
-                {
-                    "id": "g07",
-                    "name": "翠翼の聖斧",
-                    "image": ""
-                },
-                {
-                    "id": "g08",
-                    "name": "ルーンの槌",
-                    "image": ""
-                },
-                {
-                    "id": "g09",
-                    "name": "残火の短剣",
-                    "image": ""
-                },
-                {
-                    "id": "g10",
-                    "name": "ネコの獣人の服",
-                    "image": ""
-                },
-                {
-                    "id": "g11",
-                    "name": "マジックシールド",
-                    "image": ""
-                },
-                {
-                    "id": "g12",
-                    "name": "ネコの獣人の兜",
-                    "image": ""
-                },
-                {
-                    "id": "g13",
-                    "name": "妖精のマント【灰】",
-                    "image": ""
-                },
-                {
-                    "id": "g14",
-                    "name": "聖域の騎士【真】フェイスA",
-                    "image": ""
-                },
-                {
-                    "id": "g15",
-                    "name": "聖域の騎士フェイスA",
-                    "image": ""
-                },
-                {
-                    "id": "g16",
-                    "name": "聖域の騎士フェイスB",
-                    "image": ""
-                }
+                {"id": "g01", "name": "聖域の騎士【真】", "image": "https://gingsisi.github.io/lt-trade/images/g01.jpg"},
+                {"id": "g02", "name": "クロネコの獣人", "image": "https://gingsisi.github.io/lt-trade/images/g02.jpg"},
+                {"id": "g03", "name": "錬金の鎧【銀】（上）", "image": "https://gingsisi.github.io/lt-trade/images/g03.jpg"},
+                {"id": "g04", "name": "錬金の鎧【銀】（下）", "image": "https://gingsisi.github.io/lt-trade/images/g04.jpg"},
+                {"id": "g05", "name": "上級魔術師の服（下）", "image": "https://gingsisi.github.io/lt-trade/images/g05.jpg"},
+                {"id": "g06", "name": "妖刀宵雷（ショウライ）", "image": "https://gingsisi.github.io/lt-trade/images/g06.jpg"},
+                {"id": "g07", "name": "翠翼の聖斧", "image": "https://gingsisi.github.io/lt-trade/images/g07.jpg"},
+                {"id": "g08", "name": "ルーンの槌", "image": "https://gingsisi.github.io/lt-trade/images/g08.jpg"},
+                {"id": "g09", "name": "残火の短剣", "image": "https://gingsisi.github.io/lt-trade/images/g09.jpg"},
+                {"id": "g10", "name": "ネコの獣人の服", "image": "https://gingsisi.github.io/lt-trade/images/g10.jpg"},
+                {"id": "g11", "name": "マジックシールド", "image": "https://gingsisi.github.io/lt-trade/images/g11.jpg"},
+                {"id": "g12", "name": "ネコの獣人の兜", "image": "https://gingsisi.github.io/lt-trade/images/g12.jpg"},
+                {"id": "g13", "name": "妖精のマント【灰】", "image": "https://gingsisi.github.io/lt-trade/images/g13.jpg"},
+                {"id": "g14", "name": "聖域の騎士【真】フェイスA", "image": "https://gingsisi.github.io/lt-trade/images/g14.jpg"},
+                {"id": "g15", "name": "聖域の騎士フェイスA", "image": "https://gingsisi.github.io/lt-trade/images/g15.jpg"},
+                {"id": "g16", "name": "聖域の騎士フェイスB", "image": "https://gingsisi.github.io/lt-trade/images/g16.jpg"}
             ]
         }
     ]
