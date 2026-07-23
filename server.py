@@ -1,13 +1,15 @@
 """
 FastAPI Cache Server for AgentsHive.
 REST API for contributing and retrieving cached knowledge.
-# deploy-id: 2026-06-17-v3-schema-region-tags-upgrade
+# deploy-id: 2026-07-23-lt-trade-board-api
 """
 
 from contextlib import asynccontextmanager
 from typing import Optional
 
 import re
+import uuid
+import time
 import uvicorn
 from fastapi import FastAPI, HTTPException, Query, Request, Form
 from fastapi.staticfiles import StaticFiles
@@ -1809,6 +1811,134 @@ async def public_stats():
         return {"total_keys": count}
     except Exception as e:
         return {"total_keys": 0, "error": str(e)}
+
+
+# ══════════════════════════════════════════════════════════════
+#  LT TRADE BOARD API
+# ══════════════════════════════════════════════════════════════
+
+LT_DATA = Path(__file__).parent / "chroma_data"
+LT_CONFIG_FILE = LT_DATA / "lt_config.json"
+LT_TRADES_FILE = LT_DATA / "lt_trades.json"
+
+LT_DEFAULT_CONFIG = {
+    "sets": [
+        {
+            "id": "side-c",
+            "name": "Link Travelers Side C",
+            "figures": [
+                {"id": "c01", "name": "#1 待更新", "image": ""},
+                {"id": "c02", "name": "#2 待更新", "image": ""},
+            ]
+        },
+        {
+            "id": "side-g",
+            "name": "Side G（鍊金術師／魔法系）",
+            "figures": [
+                {"id": "g01", "name": "錬金術師の少女【真】", "image": ""},
+                {"id": "g02", "name": "おさげのウサギの獣人", "image": ""},
+                {"id": "g03", "name": "術師のコート【桃】", "image": ""},
+                {"id": "g04", "name": "錬金術師の服【赤】", "image": ""},
+                {"id": "g05", "name": "上級魔術師の服（上）", "image": ""},
+                {"id": "g06", "name": "獣人の服【白】", "image": ""},
+                {"id": "g07", "name": "大型リュックサック", "image": ""},
+                {"id": "g08", "name": "術師の帽子", "image": ""},
+                {"id": "g09", "name": "術師の杖", "image": ""},
+                {"id": "g10", "name": "氷霜の弓矢", "image": ""},
+                {"id": "g11", "name": "ポーションセット", "image": ""},
+                {"id": "g12", "name": "錬金ベルトセット", "image": ""},
+                {"id": "g13", "name": "獣人の帽子【灰】", "image": ""},
+                {"id": "g14", "name": "波濤の剣", "image": ""},
+                {"id": "g15", "name": "錬金術師の少女【真】フェイスA", "image": ""},
+                {"id": "g16", "name": "錬金術師の少女【真】フェイスB", "image": ""},
+            ]
+        }
+    ]
+}
+
+def _lt_load_config():
+    if LT_CONFIG_FILE.exists():
+        return json.loads(LT_CONFIG_FILE.read_text())
+    LT_DATA.mkdir(parents=True, exist_ok=True)
+    LT_CONFIG_FILE.write_text(json.dumps(LT_DEFAULT_CONFIG, ensure_ascii=False, indent=2))
+    return LT_DEFAULT_CONFIG
+
+def _lt_load_trades():
+    if LT_TRADES_FILE.exists():
+        return json.loads(LT_TRADES_FILE.read_text())
+    return []
+
+def _lt_save_trades(trades):
+    LT_TRADES_FILE.write_text(json.dumps(trades, ensure_ascii=False, indent=2))
+
+
+@app.get("/api/lt/config")
+async def lt_get_config():
+    return _lt_load_config()
+
+
+@app.get("/api/lt/trades/{set_id}")
+async def lt_get_trades(set_id: str):
+    cfg = _lt_load_config()
+    set_ids = [s["id"] for s in cfg["sets"]]
+    if set_id not in set_ids:
+        raise HTTPException(404, f"Set '{set_id}' not found")
+    all_trades = _lt_load_trades()
+    return [t for t in all_trades if t.get("set_id") == set_id]
+
+
+class LT_TradeEntry(BaseModel):
+    figure_id: str
+    set_id: str
+    name: str
+    contact: str
+    type: str  # "出" or "徵"
+    qty: int = 1
+
+
+@app.post("/api/lt/trades")
+async def lt_add_trade(entry: LT_TradeEntry):
+    cfg = _lt_load_config()
+    set_ids = [s["id"] for s in cfg["sets"]]
+    if entry.set_id not in set_ids:
+        raise HTTPException(400, f"Invalid set_id: {entry.set_id}")
+    target_set = next(s for s in cfg["sets"] if s["id"] == entry.set_id)
+    fig_ids = [f["id"] for f in target_set["figures"]]
+    if entry.figure_id not in fig_ids:
+        raise HTTPException(400, f"Invalid figure_id: {entry.figure_id}")
+
+    trades = _lt_load_trades()
+    new_trade = {
+        "id": str(uuid.uuid4())[:8],
+        "figure_id": entry.figure_id,
+        "set_id": entry.set_id,
+        "name": entry.name.strip(),
+        "contact": entry.contact.strip(),
+        "type": entry.type,
+        "qty": entry.qty,
+        "ts": time.time()
+    }
+    trades.append(new_trade)
+    _lt_save_trades(trades)
+    return new_trade
+
+
+class LT_TradeDelete(BaseModel):
+    trade_id: str
+    name: str
+
+
+@app.delete("/api/lt/trades/{trade_id}")
+async def lt_delete_trade(trade_id: str, body: LT_TradeDelete):
+    trades = _lt_load_trades()
+    for i, t in enumerate(trades):
+        if t["id"] == trade_id:
+            if t["name"].strip().lower() != body.name.strip().lower():
+                raise HTTPException(403, "Name doesn't match — you can only delete your own posts")
+            deleted = trades.pop(i)
+            _lt_save_trades(trades)
+            return {"deleted": deleted}
+    raise HTTPException(404, "Trade not found")
 
 
 # ══════════════════════════════════════════════════════════════
